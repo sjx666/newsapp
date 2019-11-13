@@ -50,11 +50,10 @@ public class BaseCrudServiceImpl<T extends AbstractBaseDomain,M extends MyMapper
 
     @Override
     public PageInfo<T> page(T domain, int pageNo, int pageSize) {
-        /*Example example = new Example(entityClass);
+        Example example = new Example(entityClass);
         example.createCriteria().andEqualTo(domain);
         PageHelper.startPage(pageNo,pageSize);
         PageInfo<T> pageInfo = new PageInfo<>(mapper.selectByExample(example));
-        return pageInfo;*/
-        return null;
+        return pageInfo;
     }
 }
