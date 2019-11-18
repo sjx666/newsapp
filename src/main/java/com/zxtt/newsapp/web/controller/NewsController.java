@@ -25,7 +25,5 @@ public class NewsController {
     @Autowired
     private FilesService filesService;
 
-    public void show(){
-    }
 
 }
