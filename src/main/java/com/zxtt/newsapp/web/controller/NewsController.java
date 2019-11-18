@@ -4,6 +4,7 @@ import com.zxtt.newsapp.service.comment.CommentService;
 import com.zxtt.newsapp.service.files.FilesService;
 import com.zxtt.newsapp.service.praise.PraiseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import sun.net.www.http.HttpClient;
 
 /**
  * 新闻控制业务
@@ -24,5 +25,7 @@ public class NewsController {
     @Autowired
     private FilesService filesService;
 
+    public void show(){
+    }
 
 }
