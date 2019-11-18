@@ -23,4 +23,6 @@ public class NewsController {
 
     @Autowired
     private FilesService filesService;
+
+
 }

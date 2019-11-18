@@ -3,13 +3,14 @@ package com.zxtt.newsapp.commons.entity;
 import com.zxtt.newsapp.commons.dto.commons.AbstractBaseDomain;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 
 @Data
 @Table(name = "comment")
-public class Comment extends AbstractBaseDomain {
+public class Comment extends AbstractBaseDomain implements Serializable {
 
 
     @Id
@@ -20,6 +21,8 @@ public class Comment extends AbstractBaseDomain {
      * 新闻id
      */
     private Long newsid;
+
+    private Long userid;
 
     /**
      * 内容

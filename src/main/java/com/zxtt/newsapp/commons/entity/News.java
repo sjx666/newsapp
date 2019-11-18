@@ -3,13 +3,14 @@ package com.zxtt.newsapp.commons.entity;
 import com.zxtt.newsapp.commons.dto.commons.AbstractBaseDomain;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 
 @Data
 @Table(name = "news")
-public class News  extends AbstractBaseDomain {
+public class News  extends AbstractBaseDomain implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -4,17 +4,18 @@ import com.zxtt.newsapp.commons.dto.commons.AbstractBaseDomain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Data
 @Table(name = "files")
-public class Files extends AbstractBaseDomain {
+public class Files extends AbstractBaseDomain implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 所属新闻
+     * 所属作品
      */
     private Long newsid;
 

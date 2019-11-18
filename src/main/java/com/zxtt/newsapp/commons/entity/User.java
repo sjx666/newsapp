@@ -3,11 +3,12 @@ package com.zxtt.newsapp.commons.entity;
 import com.zxtt.newsapp.commons.dto.commons.AbstractBaseDomain;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 @Data
 @Table(name = "user")
-public class User extends AbstractBaseDomain {
+public class User extends AbstractBaseDomain  implements Serializable {
     /**
      * id
      */
