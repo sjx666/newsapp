@@ -56,15 +56,11 @@
             <version>5.0.8.RELEASE</version>
         </dependency>
         <!-- spring tx  end -->
-
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.6</version>
         </dependency>
-
-
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
