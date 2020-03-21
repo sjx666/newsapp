@@ -51,5 +51,7 @@ public class News  extends AbstractBaseDomain implements Serializable {
      * 新闻内容
      */
     private String content;
+    private User user;
+    private Files files;
 
 }

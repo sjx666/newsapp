@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 @Transactional(readOnly = true)
 public class BaseCrudServiceImpl<T extends AbstractBaseDomain,M extends MyMapper<T>> implements BaseCrudService<T> {
@@ -55,5 +56,15 @@ public class BaseCrudServiceImpl<T extends AbstractBaseDomain,M extends MyMapper
         PageHelper.startPage(pageNo,pageSize);
         PageInfo<T> pageInfo = new PageInfo<>(mapper.selectByExample(example));
         return pageInfo;
+    }
+
+    @Override
+    public Integer selectCount(T domain) {
+        return mapper.selectCount(domain);
+    }
+
+    @Override
+    public List<T> getList(T domain) {
+        return mapper.select(domain);
     }
 }

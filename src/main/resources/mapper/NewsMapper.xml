@@ -5,6 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
+
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="userid" jdbcType="BIGINT" property="userid" />
     <result column="title" jdbcType="VARCHAR" property="title" />
@@ -14,4 +15,18 @@
     <result column="replyCount" jdbcType="INTEGER" property="replycount" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
+  <resultMap id="sa" type="News"
+>
+    <association property="user" javaType="User">
+      <result column="name" property="name"></result>
+    </association>
+    <association property="files" javaType="Files">
+      <result column="fileurl" property="fileurl"></result>
+    </association>
+
+  </resultMap>
+  <select id="getNews" resultType="News" resultMap="sa">
+    SELECT n.*,u.name,f.fileurl FROM news n INNER JOIN `user` u ON u.id=n.userid INNER JOIN files f ON f.newsid =n.id LIMIT 0,2
+  </select>
+
 </mapper>

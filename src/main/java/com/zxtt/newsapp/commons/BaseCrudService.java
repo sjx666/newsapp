@@ -20,5 +20,9 @@ public interface BaseCrudService<T extends AbstractBaseDomain> {
 
     T selectOne(T t);
 
+    Integer selectCount(T domain);
+
+    List<T> getList(T domain);
+
     PageInfo<T> page(T t, int pageNo, int pageSize);
 }
