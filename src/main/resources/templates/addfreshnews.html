@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form action="#" th:action="@{addFreshNews}" th:object="${news}" method="post">
+        userid<input type="text" th:field="*{userid}" />
+        title <input type="text" th:field="*{title}" />
+        content<input type="text" th:field="*{content}" />
+        typeid<input type="text" th:field="*{typeid}" />
+        createdate <input type="date" th:field="*{createdate}" />
+        <input type="submit" />
+    </form>
+
+</body>
+</html>

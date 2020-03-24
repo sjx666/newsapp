@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxtt.newsapp.commons.mapper.NewsMapper">
+  <sql id="listnews">id,userid,title,content,createdate,typeid,praiseCount,replyCount</sql>
+  <resultMap id="BaseResultMap" type="com.zxtt.newsapp.commons.entity.News">
+    <!--
+      WARNING - @mbg.generated
+    -->
+
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="userid" jdbcType="BIGINT" property="userid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="typeid" jdbcType="BIGINT" property="typeid" />
+    <result column="praiseCount" jdbcType="INTEGER" property="praisecount" />
+    <result column="replyCount" jdbcType="INTEGER" property="replycount" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <resultMap id="sa" type="News"
+>
+    <association property="user" javaType="User">
+      <result column="name" property="name"></result>
+    </association>
+    <association property="files" javaType="Files">
+      <result column="fileurl" property="fileurl"></result>
+    </association>
+
+  </resultMap>
+  <select id="getNews" resultType="News" resultMap="sa">
+    SELECT n.*,u.name,f.fileurl FROM news n INNER JOIN `user` u ON u.id=n.userid INNER JOIN files f ON f.newsid =n.id LIMIT 0,2
+  </select>
+
+  <select id="getNewList" parameterType="News" resultType="News">
+        select <include refid="listnews"></include> FROM news
+  </select>
+
+  <delete id="delFreshNews" parameterType="News">
+        delete from news where id=#{id}
+
+  </delete>
+
+  <insert id="adFreshNews" parameterType="News">
+    INSERT INTO news (userid,title,content,createdate,typeid,praiseCount,replyCount) VALUE(#{userid},#{title},#{content},#{createdate},#{typeid},#{praiseCount},#{replyCount})
+
+  </insert>
+
+
+  <update id="updateUser" parameterType="News">
+    update smbms_user set userid=#{userid},title=#{title},content=#{content},createdate=#{createdate},typeid=#{typeid},praiseCount=#{praiseCount},replyCount=#{repleCouut}where id = #{id}
+
+  </update>
+
+  <select id="selectOneById" parameterType="News" resultType="News">
+
+    select * from news where id=#{id}
+  </select>
+</mapper>

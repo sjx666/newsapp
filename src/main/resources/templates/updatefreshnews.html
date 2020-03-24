@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <h2>更新</h2>
+    <form method="post" action="/updatefreshnews">
+        <input type="hidden" name="id" th:value="${news.id}"/>
+        <p>用户ID<input type="text"th:value="${news.userid}"></p>
+        <p>新闻标题<input type="text"th:value="${news.title}"/></p>
+        <p>新闻内容<input type="text"th:value="${news.content}"/></p>
+        <p>发布时间<input type="date"th:value="${news.createdate}"/></p>
+
+        <input type="submit" value="更新"/>
+        <input type="button" value="返回"/>
+    </form>
+</div>
+</body>
+</html>
