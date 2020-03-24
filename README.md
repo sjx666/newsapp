@@ -1,2 +1,2 @@
 # newsapp
-di
+新闻app
