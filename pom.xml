@@ -48,7 +48,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.14</version>
+            <version>8.0.16</version>
         </dependency>
         <!-- mysql 驱动 end -->
         <!-- spring tx  start -->
